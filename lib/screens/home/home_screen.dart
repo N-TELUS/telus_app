@@ -21,26 +21,26 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ThemeColors.bgColor,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const SizedBox(),
-          SpeakSection(speakContent: speakContent),
-          const TelusPulse(),
-          Container(
-            margin: const EdgeInsets.only(bottom: 40),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                InnerShadow(
-                  shadows: [
-                    Shadow(
-                      color: Colors.black.withOpacity(0.30),
-                      blurRadius: 10,
-                      offset: const Offset(2, 4),
-                    )
-                  ],
-                  child: Expanded(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const SizedBox(),
+            SpeakSection(speakContent: speakContent),
+            const TelusPulse(),
+            Container(
+              margin: const EdgeInsets.only(bottom: 40),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  InnerShadow(
+                    shadows: [
+                      Shadow(
+                        color: Colors.black.withOpacity(0.30),
+                        blurRadius: 10,
+                        offset: const Offset(2, 4),
+                      )
+                    ],
                     child: Container(
                       width: 330,
                       height: 170,
@@ -50,37 +50,56 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                ),
-                // ここから
-                SizedBox(
-                  width: 280,
-                  child: Carousel(pages: [
-                    for (var i = 0; i < 3; i++)
-                      SizedBox(
-                        width: 280,
-                        child: GridView.count(
-                          shrinkWrap: true,
-                          primary: true,
-                          crossAxisCount: 4,
-                          mainAxisSpacing: 25,
-                          crossAxisSpacing: 25,
-                          physics:
-                              const NeverScrollableScrollPhysics(), // スクロール無効化
-                          padding: const EdgeInsets.all(1.0),
-                          children: List.generate(8, (index) {
-                            return AppIcon(
-                              screenName: appList[1].screenName,
-                              imageName: appList[1].iconName,
-                            );
-                          }),
-                        ),
-                      ),
-                  ]),
-                ),
-              ],
+                  SizedBox(
+                    width: 280,
+                    child: GridView.count(
+                      shrinkWrap: true,
+                      primary: true,
+                      crossAxisCount: 4,
+                      mainAxisSpacing: 25,
+                      crossAxisSpacing: 25,
+                      physics: const NeverScrollableScrollPhysics(), // スクロール無効化
+                      padding: const EdgeInsets.all(1.0),
+                      children: List.generate(appList.length, (index) {
+                        return AppIcon(
+                          screenName: appList[index].screenName,
+                          imageName: appList[index].iconName,
+                        );
+                      }),
+                    ),
+                  ),
+
+                  // ここから
+                  // SizedBox(
+                  //   width: 280,
+                  //   child: Carousel(pages: [
+                  //     for (var i = 0; i < 3; i++)
+                  //       SizedBox(
+                  //         width: 280,
+                  //         child: GridView.count(
+                  //           shrinkWrap: true,
+                  //           primary: true,
+                  //           crossAxisCount: 4,
+                  //           mainAxisSpacing: 25,
+                  //           crossAxisSpacing: 25,
+                  //           physics:
+                  //               const NeverScrollableScrollPhysics(), // スクロール無効化
+                  //           padding: const EdgeInsets.all(1.0),
+                  //           children: List.generate(8, (index) {
+                  //             return AppIcon(
+                  //               screenName: appList[1].screenName,
+                  //               imageName: appList[1].iconName,
+                  //             );
+                  //           }),
+                  //         ),
+                  //       ),
+                  //   ]),
+                  // ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
