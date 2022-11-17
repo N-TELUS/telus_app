@@ -17,6 +17,11 @@ dependencies:
   flutter_inner_shadow: ^0.0.1
   carousel_slider: ^4.1.1
   dio: ^4.0.6
+  flutter_launcher_icons: ^0.11.0
+  flutter_native_splash: ^2.2.14
+  firebase_auth: ^4.1.2
+  firebase_core: ^2.2.0
+  google_sign_in: ^5.4.2
 
 dev_dependencies:
   flutter_test:
@@ -29,3 +34,18 @@ flutter:
 
   assets:
     - assets/svg/
+
+# アプリアイコンの設定
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/img/app_icon.png"
+
+# スプラッシュ画面の設定
+flutter_native_splash:
+  color: "#DCDCDC"
+  image: "assets/img/splash.png"
+  # ダークモード
+  # color_dark: "#262626"
+  # image_dark: "assets/images/splash.png"
+  fullscreen: true
